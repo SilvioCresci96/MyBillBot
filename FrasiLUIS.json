@@ -1,0 +1,181 @@
+{
+  "luis_schema_version": "3.2.0",
+  "versionId": "0.1",
+  "name": "MyBillBot",
+  "desc": "Luis Model for CoreBot",
+  "culture": "it-it",
+  "tokenizerVersion": "1.0.0",
+  "intents": [
+    {
+      "name": "Query"
+    },
+    {
+      "name": "None"
+    }
+  ],
+  "entities": [],
+  "composites": [
+    {
+      "name": "Since",
+      "children": [
+        "Date"
+      ],
+      "roles": []
+    },
+    {
+      "name": "To",
+      "children": [
+        "Date"
+      ],
+      "roles": []
+    }
+  ],
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "prebuiltEntities": [
+    {
+      "name": "datetimeV2",
+      "roles": []
+    }
+  ],
+  "model_features": [],
+  "regex_features": [],
+  "patterns": [],
+  "utterances": [
+    {
+      "text": "quanto ho fatturato",
+      "intent": "Query",
+      "entities": []
+    },
+    {
+      "text": "quanto ho fatturato il 01-01-2000",
+      "intent": "Query",
+      "entities": [
+        {
+          "entity": "Date",
+          "startPos": 22,
+          "endPos": 32
+        }
+      ]
+    },
+    {
+      "text": "Quanto ho fatturato il mese scorso?",
+      "intent": "Query",
+      "entities": [
+        {
+          "entity": "Date",
+          "startPos": 22,
+          "endPos": 33
+        }
+      ]
+    },
+    {
+      "text": "book a hotel in new york",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "book a restaurant",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "quanto ho fatturato il 1-1-20",
+      "intent": "Query",
+      "entities": [
+        {
+          "entity": "Since",
+          "startPos": 17,
+          "endPos": 22
+        },
+        {
+          "entity": "To",
+          "startPos": 27,
+          "endPos": 31
+        }
+      ]
+    },
+    {
+      "text": "book flight to berlin on feb 14th",
+      "intent": "Query",
+      "entities": [
+        {
+          "entity": "To",
+          "startPos": 15,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "book me a flight from london to paris",
+      "intent": "Query",
+      "entities": [
+        {
+          "entity": "Since",
+          "startPos": 22,
+          "endPos": 27
+        },
+        {
+          "entity": "To",
+          "startPos": 32,
+          "endPos": 36
+        }
+      ]
+    },
+    {
+      "text": "going from paris to berlin",
+      "intent": "Query",
+      "entities": [
+        {
+          "entity": "Since",
+          "startPos": 11,
+          "endPos": 15
+        },
+        {
+          "entity": "To",
+          "startPos": 20,
+          "endPos": 25
+        }
+      ]
+    },
+    {
+      "text": "travel from new york to paris",
+      "intent": "Query",
+      "entities": [
+        {
+          "entity": "Since",
+          "startPos": 12,
+          "endPos": 19
+        },
+        {
+          "entity": "To",
+          "startPos": 24,
+          "endPos": 28
+        }
+      ]
+    },
+    {
+      "text": "travel to new york",
+      "intent": "Query",
+      "entities": [
+        {
+          "entity": "To",
+          "startPos": 10,
+          "endPos": 17
+        }
+      ]
+    },
+    {
+      "text": "travel to paris",
+      "intent": "Query",
+      "entities": [
+        {
+          "entity": "To",
+          "startPos": 10,
+          "endPos": 14
+        }
+      ]
+    }
+  ],
+  "settings": []
+}
