@@ -69,7 +69,7 @@ class WaterfallMain(ComponentDialog):
             ChoicePrompt.__name__,
             PromptOptions(
                 prompt=MessageFactory.text(f"Ciao, cosa vuoi fare?"),
-                choices=[Choice("Fattura testuale"), Choice("Fattura visiva"), Choice("Query")],
+                choices=[Choice("Aggiungi fattura manualmente"), Choice("Aggiungi foto fattura"), Choice("Operazioni")],
                 style=ListStyle.hero_card
             ),
         )  
@@ -80,11 +80,11 @@ class WaterfallMain(ComponentDialog):
         result = step_context.result.value
         
 
-        if result == "Fattura testuale":
+        if result == "Aggiungi fattura manualmente":
             return await step_context.begin_dialog(WaterfallText.__name__)
-        elif result == "Fattura visiva":
+        elif result == "Aggiungi foto fattura":
             return await step_context.begin_dialog(WaterfallPhoto.__name__)
-        elif result == "Query":
+        elif result == "Operazioni":
             
             return await step_context.begin_dialog(WaterfallQuery.__name__)
         else:

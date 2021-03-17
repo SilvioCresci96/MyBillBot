@@ -52,6 +52,7 @@ class WaterfallText(ComponentDialog):
         return await step_context.prompt(
             NumberPrompt.__name__,
             PromptOptions(prompt=MessageFactory.text("Per favore inserisci l'importo")),
+            
         )
         return step_context.next(0)
 
@@ -59,16 +60,14 @@ class WaterfallText(ComponentDialog):
     async def date_step(
         self, step_context: WaterfallStepContext
     ) -> DialogTurnResult:
-        if step_context.result == "back":
-            return await step_context.end_dialog()
-            
+       
         step_context.values["amount"] = step_context.result
         self.var = True
         return await step_context.prompt(
                 TextPrompt.__name__,
                 PromptOptions(
                     prompt=MessageFactory.text("Per favore inserisci la data (DD-MM-YYYY)"),
-                    retry_prompt=MessageFactory.text("Inserisci la data corretta (DD-MM-YYYY)"),)
+                    retry_prompt=MessageFactory.text("Inserisci la data nel corretto formato (DD-MM-YYYY)"),)
             )
 
 

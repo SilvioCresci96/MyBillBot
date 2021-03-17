@@ -64,7 +64,7 @@ class WaterfallPhoto(ComponentDialog):
             retry_prompt=MessageFactory.text(
                 "The attachment must be a jpeg/png image file."
             ),
-            number_of_attempts=1
+            number_of_attempts=0
         )
         return await step_context.prompt(AttachmentPrompt.__name__, prompt_options)
 
@@ -124,9 +124,6 @@ class WaterfallPhoto(ComponentDialog):
     @staticmethod
     async def picture_prompt_validator(prompt_context: PromptValidatorContext) -> bool:
         if not prompt_context.recognized.succeeded:
-            await prompt_context.context.send_activity(
-                "No attachments received. Proceeding without a profile picture..."
-            )
 
             # We can return true from a validator function even if recognized.succeeded is false.
             return False 
