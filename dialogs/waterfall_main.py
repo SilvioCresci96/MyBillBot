@@ -69,8 +69,8 @@ class WaterfallMain(ComponentDialog):
             ChoicePrompt.__name__,
             PromptOptions(
                 prompt=MessageFactory.text(f"Ciao, cosa vuoi fare?"),
-                choices=[Choice("Aggiungi fattura manualmente"), Choice("Aggiungi foto fattura"), Choice("Operazioni")],
-                #style=ListStyle.hero_card
+                choices=[Choice("Aggiungi fattura manualmente"), Choice("Aggiungi foto fattura"), Choice("Operazioni"), Choice("Help")],
+                style=ListStyle.hero_card
             ),
         )  
 
