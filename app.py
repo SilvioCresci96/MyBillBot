@@ -87,6 +87,7 @@ USER_STATE = UserState(MEMORY)
 DIALOG = WaterfallMain(USER_STATE)
 BOT = DialogBot(CONVERSATION_STATE, USER_STATE, DIALOG, CONVERSATION_REFERENCES)
 
+APP_ID = SETTINGS.app_id if SETTINGS.app_id else uuid.uuid4()
 
 
 # If the channel is the Emulator, and authentication is not in use, the AppId will be null.
