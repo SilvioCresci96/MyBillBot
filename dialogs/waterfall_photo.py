@@ -62,9 +62,9 @@ class WaterfallPhoto(ComponentDialog):
                 "Invia la foto dello scontrino di chiusura cassa in modo che totale giornaliero e data siano ben visibili (o invia un qualsiasi messaggio per tornare indietro)."
             ),
             retry_prompt=MessageFactory.text(
-                "The attachment must be a jpeg/png image file."
+                "La foto deve essere in formato jpg o png"
             ),
-            number_of_attempts=0
+            number_of_attempts=1
         )
         return await step_context.prompt(AttachmentPrompt.__name__, prompt_options)
 
