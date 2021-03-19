@@ -71,7 +71,7 @@ class WaterfallQuery(ComponentDialog):
     async def domanda_step(self, step_context: WaterfallStepContext) -> DialogTurnResult:
         return await step_context.prompt(
             TextPrompt.__name__,
-            PromptOptions(prompt=MessageFactory.text("Cosa vuoi sapere?")),
+            PromptOptions(prompt=MessageFactory.text("Come posso aitarti?")),
         )
         return step_context.next(0)
 

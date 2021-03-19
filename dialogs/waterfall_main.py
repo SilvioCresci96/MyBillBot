@@ -68,7 +68,7 @@ class WaterfallMain(ComponentDialog):
         return await step_context.prompt(
             ChoicePrompt.__name__,
             PromptOptions(
-                prompt=MessageFactory.text(f"Ciao, cosa vuoi fare?"),
+                prompt=MessageFactory.text(f"Cosa vuoi fare?"),
                 choices=[Choice("Aggiungi fattura manualmente"), Choice("Aggiungi foto fattura"), Choice("Operazioni"), Choice("Help")],
                 style=ListStyle.hero_card
             ),
