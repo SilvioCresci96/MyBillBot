@@ -59,12 +59,15 @@ class WaterfallPhoto(ComponentDialog):
         
         prompt_options = PromptOptions(
             prompt=MessageFactory.text(
-                "Invia la foto dello scontrino di chiusura cassa in modo che totale giornaliero e data siano ben visibili (o invia un qualsiasi messaggio per tornare indietro)."
+                "Invia la foto dello scontrino di chiusura cassa in modo che totale giornaliero e data siano ben visibili."
             ),
             retry_prompt=MessageFactory.text(
                 "La foto deve essere in formato jpg o png"
             ),
-            number_of_attempts=1
+            choices=None,
+            style= None,
+            validations=None,
+            number_of_attempts=2,
         )
         return await step_context.prompt(AttachmentPrompt.__name__, prompt_options)
 
@@ -123,11 +126,13 @@ class WaterfallPhoto(ComponentDialog):
 
     @staticmethod
     async def picture_prompt_validator(prompt_context: PromptValidatorContext) -> bool:
+        
         if not prompt_context.recognized.succeeded:
 
             # We can return true from a validator function even if recognized.succeeded is false.
             return False 
 
+        
         attachments = prompt_context.recognized.value
 
         valid_images = [
@@ -140,5 +145,7 @@ class WaterfallPhoto(ComponentDialog):
 
         # If none of the attachments are valid images, the retry prompt should be sent.
         return len(valid_images) > 0
+        
+            
 
     
